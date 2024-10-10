@@ -1,0 +1,59 @@
+
+<app-header></app-header>
+
+<mat-toolbar class="app-material-toolbar">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>App Material</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+</mat-toolbar>
+  
+
+<mat-drawer-container class="app-material-container">
+    <mat-drawer #drawer mode="side" opened class="app-material-drawer">
+
+
+        <mat-accordion>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title> Formularios Básicos </mat-panel-title>
+              </mat-expansion-panel-header>
+              
+              <mat-list>
+                <mat-list-item routerLink="form1" class="app-material-link">
+                    <mat-icon matListItemIcon>folder</mat-icon>
+                    <div matListItemTitle>Formulario 1</div>
+                </mat-list-item>
+                <mat-list-item  routerLink="form2">
+                    <mat-icon matListItemIcon>folder</mat-icon>
+                    <div matListItemTitle>Formulario 2</div>
+                </mat-list-item>
+                
+              </mat-list>
+              
+
+            </mat-expansion-panel>
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                  <mat-panel-title> Formularios Avanzados </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>This is the primary content of the panel.</p>
+              </mat-expansion-panel>
+          </mat-accordion>
+          
+
+    </mat-drawer>
+    <mat-drawer-content>
+
+        <router-outlet></router-outlet>
+
+    </mat-drawer-content>
+</mat-drawer-container>
+  

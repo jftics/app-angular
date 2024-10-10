@@ -1,0 +1,15 @@
+<p>Formulario DatePicker</p>
+
+<form [formGroup]="dpForm" (ngSubmit)="guardar()">
+
+    <mat-form-field>
+        <mat-label>Seleccionar Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+     <br>
+    <button mat-flat-button>Guardar</button>
+
+</form>

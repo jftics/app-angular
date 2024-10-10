@@ -1,0 +1,67 @@
+<p>Formulario Reactivo</p>
+
+<form [formGroup]="personaForm" (ngSubmit)="guardar()">
+    <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Nombres</mat-label>
+          <input matInput placeholder="Introducir nombres" formControlName="nombres" maxlength="10">
+          <mat-icon matSuffix>account_box</mat-icon>
+          <mat-hint>Máximo 10 Carácteres {{personaForm.controls.nombres.value!.length}}/10</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Apellidos</mat-label>
+          <input matInput placeholder="Introducir apellidos" formControlName ="apellidos" maxlength="20">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-hint>Máximo 10 Carácteres {{personaForm.controls.apellidos.value!.length}}/20</mat-hint>
+        </mat-form-field>
+      </p>
+
+      <mat-form-field>
+        <mat-label>Correo Electrónico</mat-label>
+        <input
+          matInput
+          placeholder="a@a.com"
+          formControlName="email"
+        />
+        <mat-icon matSuffix>mail</mat-icon>
+        @if (personaForm.controls.email.hasError('required')) {
+          <mat-error>El dato es requerido</mat-error>
+        }
+        @else if(personaForm.controls.email.hasError('email')){
+            <mat-error>El correo es inválido</mat-error>
+        }
+      </mat-form-field>
+
+
+      <p>
+
+        <mat-radio-group aria-label="Genero" formControlName="genero">
+          <mat-label>Genero: </mat-label>
+          <mat-radio-button value="f">Femenino</mat-radio-button>
+          <mat-radio-button value="m">Masculino</mat-radio-button>
+        </mat-radio-group>
+      </p>
+
+      <div formGroupName="habilidades">
+        <h4>habilidades:</h4>
+        <p><mat-checkbox formControlName="liderazgo">liderazgo</mat-checkbox></p>
+        <p><mat-checkbox formControlName="comunicacion">comunicacion</mat-checkbox></p>
+        <p><mat-checkbox formControlName="empatia">empatia</mat-checkbox></p>
+      </div>
+      
+
+      <mat-form-field>
+        <mat-label>Profesión</mat-label>
+        <mat-select formControlName="profesion">
+          @for (item of lista; track item) {
+            <mat-option [value]="item.value">{{item.viewValue}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <button type="submit" mat-flat-button [disabled]="personaForm.invalid">Guardar</button>
+</form>

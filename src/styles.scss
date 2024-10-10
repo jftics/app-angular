@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use './app/styles/m3-theme.scss';
+
+@include mat.core();
+
+html{
+    @include mat.all-component-themes(m3-theme.$dark-theme);
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif, "Helvetica Neue", sans-serif; }
+
+.snackbar-success{
+    .mdc-snackbar__surface{
+        background-color: green!important;
+    }
+    .mdc-snackbar__label{
+        color: white!important;
+    }
+    .mat-mdc-button{
+        color: white!important;
+    }
+    
+}
+
+
+.snackbar-error{
+    .mdc-snackbar__surface{
+        background-color: red!important;
+    }
+    .mdc-snackbar__label{
+        color: white!important;
+    }
+    .mat-mdc-button{
+        color: white!important;
+    }
+    
+}
